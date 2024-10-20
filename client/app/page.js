@@ -6,13 +6,10 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Home() {
-<<<<<<< HEAD
    const api = process.env.NEXT_PUBLIC_API_URL;
 
-=======
    const api = "https://codespace-drvu.onrender.com";
    
->>>>>>> 22056652c402608e5979b48c3a87149f082325cf
    const router = useRouter();
 
    const fetchHealth = async () => {

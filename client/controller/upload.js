@@ -1,11 +1,8 @@
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
-<<<<<<< HEAD
 const api = process.env.NEXT_PUBLIC_API_URL;
-=======
 const api = "https://codespace-drvu.onrender.com";
->>>>>>> 22056652c402608e5979b48c3a87149f082325cf
 
 const upload = async ({ title, code, setMessage }) => {
    setMessage(
