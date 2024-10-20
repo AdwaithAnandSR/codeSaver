@@ -6,9 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Home() {
-   const api = process.env.NEXT_PUBLIC_API_URL;
-
-   const api = "https://codespace-drvu.onrender.com";
+   const api = process.env.NEXT_PUBLIC_API_URL
    
    const router = useRouter();
 
