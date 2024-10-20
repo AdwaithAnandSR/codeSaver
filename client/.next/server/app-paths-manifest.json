@@ -1,1 +1,7 @@
-{}
+{
+  "/home/page": "app/home/page.js",
+  "/delete/page": "app/delete/page.js",
+  "/upload/page": "app/upload/page.js",
+  "/page": "app/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
+}

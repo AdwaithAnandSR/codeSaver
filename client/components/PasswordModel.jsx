@@ -1,4 +1,5 @@
-// components/PasswordModal.js
+"use client";
+
 import React from "react";
 
 const PasswordModal = ({ isOpen, onSubmit }) => {
@@ -8,7 +9,7 @@ const PasswordModal = ({ isOpen, onSubmit }) => {
 
    const handleSubmit = () => {
       onSubmit(password);
-      setPassword(""); 
+      setPassword("");
    };
 
    return (
@@ -22,14 +23,15 @@ const PasswordModal = ({ isOpen, onSubmit }) => {
                style={styles.input}
                placeholder='Enter your password'
             />
-            <div style={{
-               display: 'flex',
-               gap: '3vw',
-               position: 'absolute',
-               bottom: '20%',
-               transform:  'translateX(-50%)' ,
-               left: '50%',
-            }}>
+            <div
+               style={{
+                  display: "flex",
+                  gap: "3vw",
+                  position: "absolute",
+                  bottom: "20%",
+                  transform: "translateX(-50%)",
+                  left: "50%"
+               }}>
                <button
                   onClick={handleSubmit}
                   style={{
@@ -56,7 +58,8 @@ const styles = {
       bottom: 0,
       display: "flex",
       justifyContent: "center",
-      alignItems: "center"
+      alignItems: "center",
+      zIndex: 99999,
    },
    modal: {
       backgroundColor: "#1c1c1c",
@@ -65,8 +68,8 @@ const styles = {
       borderRadius: 15,
       textAlign: "center",
       border: "1px solid #59c9b1",
-      position: 'relative',
-      paddingTop: '5vh',
+      position: "relative",
+      paddingTop: "5vh"
    },
    input: {
       padding: "10px",
@@ -74,7 +77,7 @@ const styles = {
       border: "1px solid #d761d0",
       width: "75%",
       backgroundColor: "#2c2c2c",
-      color: 'white',
+      color: "white"
    },
    button: {
       padding: "10px",

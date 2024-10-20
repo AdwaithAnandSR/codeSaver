@@ -9,7 +9,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
    cors({
-      origin: ["http://100.89.95.174:3000", "http://localhost:3000", "https://code-space-seven.vercel.app"]
+      origin: [
+         "http://100.89.95.174:3000",
+         "http://localhost:3000",
+         "https://code-space-seven.vercel.app"
+      ]
    })
 );
 
@@ -33,10 +37,15 @@ app.post("/upload", async (req, res) => {
 
 app.get("/getCodes", async (req, res) => {
    const codes = await codeModel.find({});
-
    return res.status(200).json({
       codes
    });
+});
+
+app.post("/deleteCode", async (req, res) => {
+   const { id } = req.body;
+   await codeModel.findOneAndDelete({ _id: id });
+   return res.sendStatus(200);
 });
 
 app.listen(4000, () => console.log("connected to server.."));

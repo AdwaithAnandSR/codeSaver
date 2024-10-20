@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { TouchableOpacity } from "react-native-web";
+import { TouchableOpacity, Text } from "react-native-web";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -20,9 +20,14 @@ export default function YourComponent() {
       fetchCodes();
    });
 
-   const copyToClipboard = code => {
-      navigator.clipboard.writeText(code);
-      toast.success("copied to clipboard.");
+   const copyCodeToClipboard = code => {
+      navigator?.clipboard?.writeText(code);
+      toast.success("code copied to clipboard.");
+   };
+   const copyIdToClipboard = id => {
+      alert(id)
+      navigator?.clipboard?.writeText(id);
+      toast.success("_id copied to clipboard.");
    };
 
    return (
@@ -41,22 +46,40 @@ export default function YourComponent() {
             ) : (
                codes.map((item, index) => (
                   <TouchableOpacity
-                     onPress={() => copyToClipboard(item.code)}
+                     onPress={() => copyCodeToClipboard(item.code)}
                      key={index}
                      style={{
                         backgroundColor: "#242424",
-                        padding: "1vh",
                         borderRadius: 23,
-                        marginHorizontal: "2vw"
+                        height: "9vh",
+                        marginHorizontal: "2vw",
+                        paddingLeft: "4vw",
+                        display: "flex",
+                        justifyContent: 'center',
                      }}>
-                     <h3
+                     <Text
+                        numberOfLines={1}
                         style={{
                            color: "white",
-                           fontSize: "6vw",
-                           marginLeft: "3vw"
+                           fontSize: "4vw",
+                           width: '80%',
+                           fontWeight: 'bold',
                         }}>
                         {item.title}
-                     </h3>
+                     </Text>
+                     <TouchableOpacity
+                        onPress={() => copyIdToClipboard(item._id)}
+                        style={{
+                           color: "white",
+                           fontSize: "3.5vw",
+                           position: "absolute",
+                           right: "5%",
+                           top: "75%",
+                           zIndex: 50,
+                           color: '#a1a1a1d9',
+                        }}>
+                        {item._id}
+                     </TouchableOpacity>
                   </TouchableOpacity>
                ))
             )}
