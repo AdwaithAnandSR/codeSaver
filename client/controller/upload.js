@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
-const api = "http://100.89.95.174:4000";
+const api = "https://codespace-drvu.onrender.com";
 
 const upload = async ({ title, code, setMessage }) => {
    setMessage(
