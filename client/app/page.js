@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Home() {
-   const api = "http://100.89.95.174:4000";
+   const api = "https://codespace-drvu.onrender.com";
    
    const router = useRouter();
 
