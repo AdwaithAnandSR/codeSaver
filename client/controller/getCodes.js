@@ -1,5 +1,5 @@
 import axios from "axios";
-const api = "http://100.89.95.174:4000";
+const api = "https://codespace-drvu.onrender.com";
 
 const getCodes = async () => {
    try {
