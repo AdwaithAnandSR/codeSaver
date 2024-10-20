@@ -3,10 +3,12 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import Navbar from "../../components/Navbar.jsx";
+import PasswordModel from "../../components/PasswordModel.jsx";
 import upload from "../../controller/upload.js";
 
 export default function Upload() {
    const [message, setMessage] = useState("");
+   const [isModelOpen, setIsModelOpen] = useState(true);
 
    const handleUpload = () => {
       const title = document.getElementById("title").value;
@@ -14,9 +16,17 @@ export default function Upload() {
       upload({ title, code, setMessage });
    };
 
+   const handlePasswordSubmit = pass => {
+      const password = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
+      if (pass.trim() === password) setIsModelOpen(false);
+   };
+
    return (
       <div>
          <Navbar />
+
+         <PasswordModel isOpen={isModelOpen} onSubmit={handlePasswordSubmit} />
+
          <div
             style={{
                width: "100%",

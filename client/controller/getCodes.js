@@ -1,5 +1,5 @@
 import axios from "axios";
-const api = "http://100.89.95.174:4000";
+const api = process.env.NEXT_PUBLIC_API_URL;
 
 const getCodes = async () => {
    try {
@@ -8,7 +8,7 @@ const getCodes = async () => {
          return res.data.codes;
       }
    } catch (error) {
-      return []
+      return [];
    }
 };
 

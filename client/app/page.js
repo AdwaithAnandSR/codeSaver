@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Home() {
-   const api = "http://100.89.95.174:4000";
-   
+   const api = process.env.NEXT_PUBLIC_API_URL;
+
    const router = useRouter();
 
    const fetchHealth = async () => {
@@ -15,9 +15,9 @@ export default function Home() {
          const res = await axios.get(`${api}/health`);
          return res.status === 200;
       } catch (error) {
-         alert(error.message)
+         alert(error.message);
          console.error("Error fetching health:", error);
-         return false; 
+         return false;
       }
    };
 
