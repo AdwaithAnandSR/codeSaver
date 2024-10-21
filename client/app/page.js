@@ -4,10 +4,12 @@ import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
-   const api = process.env.NEXT_PUBLIC_API_URL
-   
+   const api = process.env.NEXT_PUBLIC_API_URL;
+
    const router = useRouter();
 
    const fetchHealth = async () => {
@@ -15,7 +17,7 @@ export default function Home() {
          const res = await axios.get(`${api}/health`);
          return res.status === 200;
       } catch (error) {
-         alert(error.message);
+         toast.error("connection failed: Retrying in 10 seconds...");
          console.error("Error fetching health:", error);
          return false;
       }
@@ -24,9 +26,10 @@ export default function Home() {
    const initApp = async () => {
       const isConnected = await fetchHealth();
       if (isConnected) {
+         toast.success("connect to the server.");
          router.push("/home");
       } else {
-         console.log("Retrying in 10 seconds...");
+         toast.error("connection failed: Retrying in 10 seconds...");
          setTimeout(initApp, 10000);
       }
    };
@@ -45,6 +48,16 @@ export default function Home() {
             fontSize: "8vw"
          }}>
          <h1>CodeSpace</h1>
+         <ToastContainer
+            position='bottom-center'
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            theme='dark'
+         />
       </div>
    );
 }

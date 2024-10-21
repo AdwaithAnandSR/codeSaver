@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(
    cors({
       origin: [
-         "http://100.89.95.174:3000",
+         "http://10.39.142.208:3000",
          "http://localhost:3000",
          "https://code-space-seven.vercel.app"
       ]
