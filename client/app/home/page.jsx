@@ -62,7 +62,7 @@ export default function YourComponent() {
                         style={{
                            color: "white",
                            fontSize: "4vw",
-                           width: '80%',
+                           width: '90%',
                            fontWeight: 'bold',
                         }}>
                         {item.title}
