@@ -25,7 +25,7 @@ export default function YourComponent() {
       toast.success("code copied to clipboard.");
    };
    const copyIdToClipboard = id => {
-      alert(id)
+      
       navigator?.clipboard?.writeText(id);
       toast.success("_id copied to clipboard.");
    };
