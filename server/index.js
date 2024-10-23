@@ -11,7 +11,7 @@ app.use(
    cors({
       origin: [
          "http://10.39.142.208:3000",
-         "http://localhost:3000",
+         "http://10.166.12.180:3000",
          "https://code-space-seven.vercel.app"
       ]
    })

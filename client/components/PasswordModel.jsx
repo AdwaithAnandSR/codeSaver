@@ -59,7 +59,10 @@ const styles = {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      zIndex: 99999,
+      zIndex: 500,
+      width: '100vw',
+      height: '100vh',
+      backgroundColor: '#000000b2',
    },
    modal: {
       backgroundColor: "#1c1c1c",

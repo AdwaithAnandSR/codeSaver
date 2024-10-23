@@ -1,4 +1,4 @@
-// File: /data/data/com.termux/files/home/codeSaver/client/app/home/page.jsx
+// File: /data/data/com.termux/files/home/codeSpace/client/app/home/page.jsx
 import * as entry from '../../../../app/home/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

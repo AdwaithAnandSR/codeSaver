@@ -18,7 +18,7 @@ export default function YourComponent() {
          }
       };
       fetchCodes();
-   });
+   }, []);
 
    const copyCodeToClipboard = code => {
       navigator?.clipboard?.writeText(code);
@@ -31,15 +31,17 @@ export default function YourComponent() {
    };
 
    return (
-      <div>
-         <Navbar />
+
          <div
             style={{
                display: "flex",
                flexDirection: "column",
                gap: "2vh",
-               marginTop: "15vh",
-               marginBottom: "5vh"
+               height: "75vh",
+               overflowY: 'auto',
+               padding: '1vh',
+               paddingBottom: '10vh',
+               backgroundColor: 'black',
             }}>
             {codes.length < 1 ? (
                <h4 style={{ margin: "2vw" }}>loading..</h4>
@@ -84,17 +86,5 @@ export default function YourComponent() {
                ))
             )}
          </div>
-
-         <ToastContainer
-            position='bottom-center'
-            autoClose={2000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            theme='dark'
-         />
-      </div>
    );
 }
