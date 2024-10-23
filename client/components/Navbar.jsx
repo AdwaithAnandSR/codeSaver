@@ -30,6 +30,8 @@ const Navbar = () => {
             padding: '2vw',
             backgroundColor: 'black',
             color: 'white',
+            position: 'absolute',
+            zIndex: 999
          }}>
          <TouchableOpacity style={{ marginLeft: '-4vw',}} onPress={fetchHome}>
             <h1>CodeSpace</h1>
