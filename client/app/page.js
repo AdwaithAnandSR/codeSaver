@@ -36,7 +36,7 @@ export default function Home() {
 
    useEffect(() => {
       initApp();
-   });
+   }, []);
 
    return (
       <div
@@ -45,19 +45,12 @@ export default function Home() {
             justifyContent: "center",
             alignItems: "center",
             height: "80vh",
-            fontSize: "8vw"
+            fontSize: "8vw",
+            position: 'relative', 
+            top: 0,
+            zIndex: 999999,
          }}>
          <h1>CodeSpace</h1>
-         <ToastContainer
-            position='bottom-center'
-            autoClose={2000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            theme='dark'
-         />
       </div>
    );
 }

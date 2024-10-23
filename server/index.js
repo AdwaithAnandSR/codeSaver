@@ -11,7 +11,7 @@ app.use(
    cors({
       origin: [
          "http://10.39.142.208:3000",
-         "http://10.166.12.180:3000",
+         "http://localhost:3000",
          "https://code-space-seven.vercel.app"
       ]
    })
@@ -25,27 +25,40 @@ app.get("/health", (req, res) => {
 });
 
 app.post("/upload", async (req, res) => {
-   const { title, code } = req.body;
-   if (!title || !code) return;
-   const codeRes = await codeModel.create({
-      title,
-      code
-   });
+   try {
+      const { title, code } = req.body;
+      if (!title || !code) return;
+      const codeRes = await codeModel.create({
+         title,
+         code
+      });
 
-   if (codeRes) return res.sendStatus(200);
+      if (codeRes) return res.sendStatus(200);
+   } catch (error) {
+      console.log(error);
+   }
 });
 
 app.get("/getCodes", async (req, res) => {
-   const codes = await codeModel.find({});
-   return res.status(200).json({
-      codes
-   });
+   try {
+      const codes = await codeModel.find({});
+      if (codes)
+         return res.status(200).json({
+            codes
+         });
+   } catch (error) {
+      console.log(error);
+   }
 });
 
 app.post("/deleteCode", async (req, res) => {
-   const { id } = req.body;
-   await codeModel.findOneAndDelete({ _id: id });
-   return res.sendStatus(200);
+   try {
+      const { id } = req.body;
+      await codeModel.findOneAndDelete({ _id: id });
+      return res.sendStatus(200);
+   } catch (error) {
+      console.log(error);
+   }
 });
 
 app.listen(4000, () => console.log("connected to server.."));

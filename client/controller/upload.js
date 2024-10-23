@@ -1,5 +1,6 @@
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const api = process.env.NEXT_PUBLIC_API_URL;
 
@@ -28,24 +29,29 @@ const upload = async ({ title, code, setMessage }) => {
 
    try {
       const res = await axios.post(`${api}/upload`, { code, title });
-      if (res.status === 200)
+      if (res.status === 200){
          setMessage(
             <h1 style={{ color: "green", fontSize: "4vw", marginTop: "-1vh" }}>
                upload successfull.
             </h1>
          );
-      else
+         toast.success("code uploaded successfully 🥳.");}
+      else{
          setMessage(
             <h1 style={{ color: "red", fontSize: "4vw", marginTop: "-1vh" }}>
                upload failed.
             </h1>
          );
+         
+         toast.error("code uploading failed.");
+      }
    } catch (error) {
       setMessage(
          <h1 style={{ color: "red", fontSize: "4vw", marginTop: "-1vh" }}>
             upload failed: {error.message}
          </h1>
       );
+         toast.error("code uploading failed.");
       console.log(error);
    }
 };
