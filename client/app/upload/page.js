@@ -23,10 +23,7 @@ export default function Upload() {
 
    return (
       <div>
-         <Navbar />
-
          <PasswordModel isOpen={isModelOpen} onSubmit={handlePasswordSubmit} />
-
          <div
             style={{
                width: "100%",
