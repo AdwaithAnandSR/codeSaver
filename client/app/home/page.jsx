@@ -40,7 +40,7 @@ export default function YourComponent() {
                height: "75vh",
                overflowY: 'auto',
                padding: '1vh',
-               paddingBottom: '10vh',
+               paddingBottom: '15vh',
                backgroundColor: 'black',
             }}>
             {codes.length < 1 ? (
