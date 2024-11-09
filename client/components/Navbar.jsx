@@ -26,7 +26,9 @@ const Navbar = () => {
    return (
       <div
          style={{
-            height: window.screen.height * 0.1 ,
+            height: isDesktop ? "18vh" : "9vh" ,
+            fontSize: isDesktop ? "4vw" : "3.5vw" ,
+            marginVertical: '2vh',
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -36,7 +38,7 @@ const Navbar = () => {
             zIndex: 999,
          }}
          >
-         <TouchableOpacity style={{ fontSize: window.screen.width * 0.05}} onPress={fetchHome}>
+         <TouchableOpacity onPress={fetchHome}>
             <h1>CodeSpace</h1>
          </TouchableOpacity>
       </div>
