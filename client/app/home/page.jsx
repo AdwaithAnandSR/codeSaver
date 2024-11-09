@@ -3,12 +3,14 @@ import { useState, useEffect } from "react";
 import { TouchableOpacity, Text } from "react-native-web";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useMediaQuery } from 'react-responsive'
 
 import Navbar from "../../components/Navbar.jsx";
 import getCodes from "../../controller/getCodes.js";
 
 export default function YourComponent() {
    const [codes, setCodes] = useState([]);
+   const isDesktop = useMediaQuery({ minWidth: 768 });
 
    useEffect(() => {
       const fetchCodes = async () => {
@@ -31,13 +33,12 @@ export default function YourComponent() {
    };
 
    return (
-
          <div
             style={{
                display: "flex",
                flexDirection: "column",
-               gap: "2vh",
-               height: "75vh",
+               gap: "2.5vh",
+               height: "70vh",
                overflowY: 'auto',
                padding: '1vh',
                paddingBottom: '15vh',
@@ -53,7 +54,7 @@ export default function YourComponent() {
                      style={{
                         backgroundColor: "#242424",
                         borderRadius: 23,
-                        height: "9vh",
+                        height: isDesktop ? "18vh" : "9vh",
                         marginHorizontal: "2vw",
                         paddingLeft: "4vw",
                         display: "flex",
@@ -63,7 +64,7 @@ export default function YourComponent() {
                         numberOfLines={1}
                         style={{
                            color: "white",
-                           fontSize: "4vw",
+                           fontSize: isDesktop ? "2.5vw" : "4vw",
                            width: '90%',
                            fontWeight: 'bold',
                         }}>
@@ -72,15 +73,20 @@ export default function YourComponent() {
                      <TouchableOpacity
                         onPress={() => copyIdToClipboard(item._id)}
                         style={{
-                           color: "white",
-                           fontSize: "3.5vw",
                            position: "absolute",
-                           right: "5%",
-                           top: "75%",
+                           right: "3%",
+                           bottom: '10%',
                            zIndex: 50,
-                           color: '#a1a1a1d9',
+                        }}>
+                     <Text
+                        numberOfLines={1}
+                        style={{
+                           color: "white",
+                           fontSize: isDesktop ? "2vw" : "2.5vw",
+                           opacity: 0.5,
                         }}>
                         {item._id}
+                     </Text>
                      </TouchableOpacity>
                   </TouchableOpacity>
                ))
