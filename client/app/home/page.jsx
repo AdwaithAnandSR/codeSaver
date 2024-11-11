@@ -3,15 +3,13 @@ import { useState, useEffect } from "react";
 import { TouchableOpacity, Text } from "react-native-web";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useMediaQuery } from 'react-responsive'
 
 import Navbar from "../../components/Navbar.jsx";
 import getCodes from "../../controller/getCodes.js";
 
 export default function YourComponent() {
    const [codes, setCodes] = useState([]);
-   const isDesktop = useMediaQuery({ minWidth: 768 });
-
+  
    useEffect(() => {
       const fetchCodes = async () => {
          const res = await getCodes();
@@ -34,16 +32,8 @@ export default function YourComponent() {
 
    return (
          <div
-            style={{
-               display: "flex",
-               flexDirection: "column",
-               gap: "2.5vh",
-               height: "70vh",
-               overflowY: 'auto',
-               padding: '1vh',
-               paddingBottom: '15vh',
-               backgroundColor: 'black',
-            }}>
+         id="codeContainer"
+            >
             {codes.length < 1 ? (
                <h4 style={{ margin: "2vw" }}>loading..</h4>
             ) : (
@@ -51,40 +41,20 @@ export default function YourComponent() {
                   <TouchableOpacity
                      onPress={() => copyCodeToClipboard(item.code)}
                      key={index}
-                     style={{
-                        backgroundColor: "#242424",
-                        borderRadius: 23,
-                        height: isDesktop ? "18vh" : "9vh",
-                        marginHorizontal: "2vw",
-                        paddingLeft: "4vw",
-                        display: "flex",
-                        justifyContent: 'center',
-                     }}>
+                     id="codeItem"
+                     >
                      <Text
                         numberOfLines={1}
-                        style={{
-                           color: "white",
-                           fontSize: isDesktop ? "2.5vw" : "4vw",
-                           width: '90%',
-                           fontWeight: 'bold',
-                        }}>
+                        id="codeTitle"
+                        >
                         {item.title}
                      </Text>
                      <TouchableOpacity
                         onPress={() => copyIdToClipboard(item._id)}
-                        style={{
-                           position: "absolute",
-                           right: "3%",
-                           bottom: '10%',
-                           zIndex: 50,
-                        }}>
+                        id="idContainer">
                      <Text
                         numberOfLines={1}
-                        style={{
-                           color: "white",
-                           fontSize: isDesktop ? "2vw" : "2.5vw",
-                           opacity: 0.5,
-                        }}>
+                        id="idText">
                         {item._id}
                      </Text>
                      </TouchableOpacity>

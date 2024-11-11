@@ -24,14 +24,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
    return (
       <html lang='en'>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
          <body
-            style={{
-               width: "100%",
-               height: "100%",
-               overflow: "hidden",
-               backgroundColor: "black",
-               color: "white"
-            }}
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
             <Navbar />
             <ToastContainer
@@ -49,3 +43,6 @@ export default function RootLayout({ children }) {
       </html>
    );
 }
+
+
+

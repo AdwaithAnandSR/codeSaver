@@ -3,14 +3,11 @@ import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { TouchableOpacity } from "react-native-web";
-import { useMediaQuery } from 'react-responsive'
-
+import styles from "../app/globals.css";
 
 const Navbar = () => {
    const router = useRouter();
    const pathname = usePathname();
-   const isDesktop = useMediaQuery({ minWidth: 768 });
-
    const fetchHome = () => {
       if (pathname != "/home") {
          router.replace("/home");
@@ -24,22 +21,19 @@ const Navbar = () => {
    };
 
    return (
-      <div
-         style={{
-            height: isDesktop ? "18vh" : "9vh" ,
-            fontSize: isDesktop ? "4vw" : "3.5vw" ,
-            marginVertical: '2vh',
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            paddingLeft: "5vw",
-            backgroundColor: 'black',
-            color: 'white',
-            zIndex: 999,
-         }}
-         >
-         <TouchableOpacity onPress={fetchHome}>
-            <h1>CodeSpace</h1>
+      <div id='navbar'>
+         <TouchableOpacity
+            style={{ display: "flex", flexDirection: "row" }}
+            onPress={fetchHome}>
+            <h1>
+               CodeSpac
+               <span
+                  style={{
+                     textShadow: "1px 1px 3px #19deea"
+                  }}>
+                  e
+               </span>
+            </h1>
          </TouchableOpacity>
       </div>
    );
