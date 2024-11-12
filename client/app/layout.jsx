@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Analytics } from "@vercel/analytics/react"
 
 import Navbar from "../components/Navbar.jsx";
 
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
                theme='dark'
             />
             {children}
+            <Analytics />
          </body>
       </html>
    );
