@@ -3,7 +3,9 @@ import "./globals.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Analytics } from "@vercel/analytics/react"
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
+ 
+ 
 import Navbar from "../components/Navbar.jsx";
 
 const geistSans = localFont({
@@ -41,6 +43,7 @@ export default function RootLayout({ children }) {
             />
             {children}
             <Analytics />
+            <SpeedInsights />
          </body>
       </html>
    );
