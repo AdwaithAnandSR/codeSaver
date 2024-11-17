@@ -5,7 +5,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { CircleLoader } from "react-awesome-loaders";
 import "react-toastify/dist/ReactToastify.css";
+import "./globals.css";
 
 export default function Home() {
    const api = process.env.NEXT_PUBLIC_API_URL;
@@ -39,18 +41,24 @@ export default function Home() {
    }, []);
 
    return (
-      <div
-         style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "80vh",
-            fontSize: "8vw",
-            position: 'relative', 
-            top: 0,
-            zIndex: 999999,
-         }}>
-         <h1>CodeSpace</h1>
-      </div>
+      <>
+         <div id='initialPage'>
+            <h1>CodeSpace</h1>
+         </div>
+         <div
+            style={{
+               display: "flex",
+               justifyContent: "center",
+               alignItems: "center",
+               width: "100%",
+               height: "100%",
+               position: "absolute",
+               top: "5%",
+               opacity: 0.7,
+               zIndex: 10
+            }}>
+            <CircleLoader />
+         </div>
+      </>
    );
 }
