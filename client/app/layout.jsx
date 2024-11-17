@@ -20,8 +20,8 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-   title: "codeSaver",
-   description: ""
+   title: "codeSpace",
+   description: "Need code? Find it instantly on codeSpace."
 };
 
 export default function RootLayout({ children }) {
