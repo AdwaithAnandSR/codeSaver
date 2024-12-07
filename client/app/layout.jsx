@@ -21,13 +21,17 @@ const geistMono = localFont({
 
 export const metadata = {
    title: "codeSpace",
-   description: "Need Code? Find it instantly on codeSpace."
+   description: "BCA PROGRAMMING CODES."
 };
 
 export default function RootLayout({ children }) {
    return (
       <html lang='en'>
+
          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+         <meta name="google-site-verification" content="your-verification-code" />
+
          <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
             <Navbar />
