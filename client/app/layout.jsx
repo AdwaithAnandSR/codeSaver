@@ -20,7 +20,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-   title: "codeSpace",
+   title: "codeSpace - BCA PROGRAMMING",
    description: "BCA PROGRAMMING CODES."
 };
 
